@@ -5,7 +5,6 @@ import "@nomiclabs/hardhat-etherscan";
 import "@nomiclabs/hardhat-waffle";
 import "@typechain/hardhat";
 import "hardhat-gas-reporter";
-import "solidity-coverage";
 
 dotenv.config();
 
@@ -23,12 +22,12 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 // Go to https://hardhat.org/config/ to learn more
 
 const config: HardhatUserConfig = {
-  solidity: "0.8.4",
+  solidity: "0.4.18",
   networks: {
-    ropsten: {
-      url: process.env.ROPSTEN_URL || "",
+    galaDevnet: {
+      url: process.env.GALA_DEVNET_URL || "",
       accounts:
-        process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+        process.env.GALA_PRIVATE_KEY !== undefined ? [process.env.GALA_PRIVATE_KEY] : [],
     },
   },
   gasReporter: {
@@ -36,7 +35,19 @@ const config: HardhatUserConfig = {
     currency: "USD",
   },
   etherscan: {
-    apiKey: process.env.ETHERSCAN_API_KEY,
+    apiKey: {
+      galaDevnet: "something"!, // not needed for now, I guess
+    },
+    customChains: [
+      {
+        network: "galaDevnet",
+        chainId: 41233,
+        urls: {
+          apiURL: "https://explorer-devnet-41233.galactica.com/api",
+          browserURL: "https://explorer-devnet-41233.galactica.com/"
+        }
+      },
+    ]
   },
 };
 
