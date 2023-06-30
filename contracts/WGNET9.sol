@@ -21,9 +21,9 @@
 
 pragma solidity ^0.4.18;
 
-contract WGALA9 {
-    string public name     = "Wrapped Gala";
-    string public symbol   = "WGALA";
+contract WGNET9 {
+    string public name     = "Wrapped GNET";
+    string public symbol   = "WGNET";
     uint8  public decimals = 18;
 
     event  Approval(address indexed src, address indexed guy, uint wad);

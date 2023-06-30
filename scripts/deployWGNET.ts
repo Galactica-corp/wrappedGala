@@ -1,16 +1,16 @@
 import { ethers, run } from "hardhat";
 
 async function main() {
-  const wGalaFactory = await ethers.getContractFactory("WGALA9");
-  const wGala = await wGalaFactory.deploy();
+  const wGnetFactory = await ethers.getContractFactory("WGNET9");
+  const wGnet = await wGnetFactory.deploy();
 
-  await wGala.deployed();
+  await wGnet.deployed();
 
-  console.log("wGALA deployed to:", wGala.address);
+  console.log("wGNET deployed to:", wGnet.address);
 
   await run("verify:verify", {
-    contract: "contracts/WGALA9.sol:WGALA9",
-    address: wGala.address,
+    contract: "contracts/WGNET9.sol:WGNET9",
+    address: wGnet.address,
   });
 }
 

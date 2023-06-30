@@ -25,9 +25,9 @@ const config: HardhatUserConfig = {
   solidity: "0.4.18",
   networks: {
     galaDevnet: {
-      url: process.env.GALA_DEVNET_URL || "",
+      url: process.env.GNET_DEVNET_URL || "",
       accounts:
-        process.env.GALA_PRIVATE_KEY !== undefined ? [process.env.GALA_PRIVATE_KEY] : [],
+        process.env.GNET_PRIVATE_KEY !== undefined ? [process.env.GNET_PRIVATE_KEY] : [],
     },
   },
   gasReporter: {
@@ -36,11 +36,11 @@ const config: HardhatUserConfig = {
   },
   etherscan: {
     apiKey: {
-      galaDevnet: "something"!, // not needed for now, I guess
+      gnetDevnet: "something"!, // not needed for now, I guess
     },
     customChains: [
       {
-        network: "galaDevnet",
+        network: "gnetDevnet",
         chainId: 41233,
         urls: {
           apiURL: "https://explorer-devnet-41233.galactica.com/api",
