@@ -9,5 +9,5 @@ cp .env.example .env
 
 Then you can deploy it:
 ```shell
-npx hardhat run scripts/deployWGNET.ts --network galaDevnet
+npx hardhat run scripts/deployWGNET.ts --network reticulum
 ```

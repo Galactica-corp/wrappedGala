@@ -24,8 +24,13 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 const config: HardhatUserConfig = {
   solidity: "0.4.18",
   networks: {
-    galaDevnet: {
+    galaAndromeda: {
       url: process.env.GNET_DEVNET_URL || "",
+      accounts:
+        process.env.GNET_PRIVATE_KEY !== undefined ? [process.env.GNET_PRIVATE_KEY] : [],
+    },
+    reticulum: {
+      url: 'https://evm-rpc-http-reticulum.galactica.com/',
       accounts:
         process.env.GNET_PRIVATE_KEY !== undefined ? [process.env.GNET_PRIVATE_KEY] : [],
     },
@@ -36,16 +41,25 @@ const config: HardhatUserConfig = {
   },
   etherscan: {
     apiKey: {
-      gnetDevnet: "something"!, // not needed for now, I guess
+      galaAndromeda: "something"!, // not needed for now, I guess
+      reticulum: "something"!, // not needed for now, I guess
     },
     customChains: [
       {
-        network: "gnetDevnet",
-        chainId: 41233,
+        network: "galaAndromeda",
+        chainId: 41238,
         urls: {
-          apiURL: "https://explorer-devnet-41233.galactica.com/api",
-          browserURL: "https://explorer-devnet-41233.galactica.com/"
+          apiURL: "https://explorer-andromeda.galactica.com/api",
+          browserURL: "https://explorer-andromeda.galactica.com/"
         }
+      },
+      {
+        network: 'reticulum',
+        chainId: 9301,
+        urls: {
+          apiURL: 'https://explorer-reticulum.galactica.com/api',
+          browserURL: 'https://explorer-reticulum.galactica.com/',
+        },
       },
     ]
   },
