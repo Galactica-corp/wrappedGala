@@ -1,5 +1,15 @@
 {
-  "name": "hardhat-project",
+  "name": "@galactica-net/wrapped-gnet",
+  "version": "9.0.0",
+  "description": "Wrapped GNET ERC20 token",
+  "homepage": "https://galactica.com",
+  "license": "GPLv3",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/contracts",
+    "/typechain-types/contracts"
+  ],
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.2.3",
     "@nomiclabs/hardhat-etherscan": "^3.1.7",
@@ -18,5 +28,9 @@
     "ts-node": "^10.9.1",
     "typechain": "^5.2.0",
     "typescript": "^4.9.5"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }
