@@ -1,6 +1,6 @@
 {
   "name": "@galactica-net/wrapped-gnet",
-  "version": "9.0.0",
+  "version": "9.0.1",
   "description": "Wrapped GNET ERC20 token",
   "homepage": "https://galactica.com",
   "license": "GPLv3",
@@ -8,7 +8,7 @@
   "types": "dist/index.d.ts",
   "files": [
     "/contracts",
-    "/typechain-types/contracts"
+    "/typechain"
   ],
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.2.3",

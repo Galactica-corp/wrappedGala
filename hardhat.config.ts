@@ -34,6 +34,10 @@ const config: HardhatUserConfig = {
       accounts:
         process.env.GNET_PRIVATE_KEY !== undefined ? [process.env.GNET_PRIVATE_KEY] : [],
     },
+    cassiopeia: {
+      url: 'https://galactica-cassiopeia.g.alchemy.com/public',
+      accounts: [process.env.GalaTestnetDeployerPrivateKey || ""],
+    },
   },
   gasReporter: {
     enabled: process.env.REPORT_GAS !== undefined,
@@ -43,6 +47,7 @@ const config: HardhatUserConfig = {
     apiKey: {
       galaAndromeda: "something"!, // not needed for now, I guess
       reticulum: "something"!, // not needed for now, I guess
+      cassiopeia: process.env.ALCHEMY_API_KEY ?? '',
     },
     customChains: [
       {
@@ -59,6 +64,14 @@ const config: HardhatUserConfig = {
         urls: {
           apiURL: 'https://explorer-reticulum.galactica.com/api',
           browserURL: 'https://explorer-reticulum.galactica.com/',
+        },
+      },
+      {
+        network: 'cassiopeia',
+        chainId: 843843,
+        urls: {
+          apiURL: 'https://galactica-cassiopeia.explorer.alchemy.com/api',
+          browserURL: 'https://galactica-cassiopeia.explorer.alchemy.com/',
         },
       },
     ]
